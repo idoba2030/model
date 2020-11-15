@@ -22,12 +22,12 @@ params = {
     "beta": 8,
     "phi": 0.1,
     "epsilon": 0.05,
-    "k": [2, 3],
+    "k": np.arange(2, 7),
     "rho": [0.8, 0.9],
     "reward": [0, 1, 2],
     "ns": np.arange(2, 7),
     "prob_2": [0.2, 0.5, 0.8, 0.2, 0.5, 0.8],
-    "simulations": 1000,
+    "simulations": 100,
     "alpha_WM": 1,
     "alpha_RL": 0.1,
     "key_presses": 3,
@@ -65,7 +65,7 @@ for block in params["ns"]:
             stimulus = pick_stimuli(params1)
             # make a choice
             choice = make_choice(
-                params, params1, Q_RL, Q_WM, policy_RL, policy_WM, stimulus
+                params, params1, Q_RL, Q_WM, policy_RL, policy_WM, stimulus, block
             )
             # check the outcome and the reward
             reward, outcome = check_correct(params, stimulus, choice)
