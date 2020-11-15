@@ -1,14 +1,19 @@
 def initialize(params, params1):
     import numpy as np
 
-    choices = []  # arrays as integers so that indexing would be possible
-    rewards = []
-    stimuli = []
-    outcomes = []
     Q_RL = (
         np.zeros((params1["number_of_stimuli"], params["key_presses"]))
         + 1 / params["key_presses"]
-    )  # (number of stimuli, number of key presses) adding initial uniform Qval according to key presses
+    )
+    policy_RL = (
+        np.zeros((params1["number_of_stimuli"], params["key_presses"]))
+        + 1 / params["key_presses"]
+    )
+    policy_WM = (
+        np.zeros((params1["number_of_stimuli"], params["key_presses"]))
+        + 1 / params["key_presses"]
+    )
+    # (number of stimuli, number of key presses) adding initial uniform Qval according to key presses
     Q_WM = (
         np.zeros((params1["number_of_stimuli"], params["key_presses"]))
         + 1 / params["key_presses"]
@@ -22,5 +27,5 @@ def initialize(params, params1):
         ]
     )
 
-    return choices, rewards, stimuli, outcomes, Q_WM, Q_RL, uniform_policy
+    return Q_WM, Q_RL, policy_WM, policy_RL, uniform_policy
 
