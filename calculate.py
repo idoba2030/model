@@ -3,6 +3,7 @@ import numpy as np
 
 
 def calculate(df, df1, params):
+    total_p_correct = np.zeros((params["simulations"], params["trials"]))
     for sim in range(params["simulations"]):
         df_simul = df[df.iloc[:, 0] == sim]
         encounters_stimuli1 = df_simul.stimuli.cumsum()
