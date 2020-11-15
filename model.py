@@ -15,6 +15,22 @@ from append_data import append_data
 from calculate import calculate
 import matplotlib.pyplot as plt
 
+###
+# This is the main script of the model.
+# The script simulates 5 different blocks which represent set-sizes varying from 2 to 6 (params[ns]).
+# In every block we have 100 trials (params[trials]).
+# The trials are replicated in 100 simulations (params[simulations])
+# The model's decision making consists of a RL and WM part.
+# In each trial the computer draws a stimulus from the possible stimuli it has in this block (pick_stimuli())
+# Then the agent makes a choice according to its learned or initialized (initialize()) Q_RL and Q_WM values.
+# The agent calculates if the choice was correct (make_choice() in correctness file).
+# The agent updates its Q_RL and Q_WM values accordingly (update_Q_WM,update_Q_R).
+# Moreover, the agent forgets its learned Q_WM values in (forget()).
+# The model gathers the results regarding stimulus=1 which appears in every set_size and has a 0.5 probability for double reward.
+# The model registers the data about stimulus1 from every trial and simulation in (append_data()).
+# The model calculates the percentchage of correct decisions about stimulus 1 in every block in (calculate()).
+# Finally, the model enters the calculated data into a dictionary and plots it.
+###
 # define parameters
 params = {
     "trials": 100,

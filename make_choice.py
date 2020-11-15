@@ -9,7 +9,7 @@ def make_choice(params, params1, Q_RL, Q_WM, policy_RL, policy_WM, stimulus, blo
         np.exp(params["beta"] * Q_WM[stimulus])
     )  # agent calculates prob to press each key for this given stimuli based on WM (rho=confidence in WM, k=capacity)
     p_WM = params["rho"][0] * min(
-        params["k"][4] / block, 1
+        params["k"][1] / block, 1
     )  # agent calculates how much should can he rely on WM (his initial confidence on WM times his ability in this set-size)
     net_policy = (
         p_WM * policy_WM[stimulus] + (1 - p_WM) * policy_RL[stimulus]
