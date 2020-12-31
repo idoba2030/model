@@ -4,15 +4,7 @@ import random as rand
 import matplotlib.pyplot as plt
 import pdb
 import pandas as pd
-from initialize import initialize
-from forget import forget
-from correctness import check_correct
-from pick_stimuli import pick_stimuli
-from make_choice import make_choice
-from update_Q_RL import update_Q_RL
-from update_Q_WM import update_Q_WM
-from append_data import append_data
-from calculate import calculate
+from MyFolder.functions.func import *
 import matplotlib.pyplot as plt
 
 ###
